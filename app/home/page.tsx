@@ -49,21 +49,37 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center px-4 py-24 md:py-32">
-        <div className="flex flex-col items-center text-center space-y-4">
-          <Badge className="mb-4" variant="secondary">
-            ✨ Welcome to Useless Gadget 2.0
-          </Badge>
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            Discover the art of identifying the identifiable
-            <br className="hidden sm:inline" /> and having fun!
-          </h1>
-          <p className="max-w-[700px] text-muted-foreground md:text-xl text-center">
-            {
-              " Dive into a world where we help you figure out if it's a plant,food, or just a living thing! Embrace the joy of solving utterlypointless mysteries with our quirky gadget."
-            }
-          </p>
-        </div>
-      </section>
+      <div className="flex flex-col items-center text-center space-y-4">
+        <Badge className="mb-4" variant="secondary">
+          🎪 The Most Unnecessarily Necessary App Ever
+        </Badge>
+        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+          Finally! An App That Does
+          <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent bg-clip-text">
+            {" "}Almost Nothing{" "}
+          </span>
+          Perfectly!
+        </h1>
+        <p className="max-w-[700px] text-muted-foreground md:text-xl text-center space-y-2">
+          <span className="block">
+            🌿 "Is this a plant?" - Well, duh! But we'll tell you anyway!
+          </span>
+          <span className="block">
+            🍕 "Is this food?" - For those moments when you're really not sure!
+          </span>
+          <span className="block">
+            🐸 "Is this alive?" - Because sometimes it's hard to tell!
+          </span>
+          <span className="block">
+            ⏰ "When will my burrito digest?" - The question you never knew you needed answered!
+          </span>
+        </p>
+        <p className="text-sm text-muted-foreground italic mt-4">
+          Warning: May cause excessive eye-rolling from friends and family
+        </p>
+      </div>
+    </section>
 
       {/* Features Section */}
       <section

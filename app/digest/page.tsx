@@ -1,12 +1,23 @@
 "use client";
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Clock } from 'lucide-react';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Clock } from "lucide-react";
 
-const TimeDisplay = ({ label, value }) => (
+type TimeDisplayProps = {
+  label: string;
+  value: string;
+};
+
+const TimeDisplay: React.FC<TimeDisplayProps> = ({ label, value }) => (
   <div className="flex items-center justify-between p-4 rounded-lg bg-secondary/10">
     <div className="flex items-center gap-2">
       <Clock className="w-5 h-5 text-muted-foreground" />
@@ -17,24 +28,24 @@ const TimeDisplay = ({ label, value }) => (
 );
 
 export default function Home() {
-  const [foodItems, setFoodItems] = useState('');
-  const [times, setTimes] = useState('');
-  const [output, setOutput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [foodItems, setFoodItems] = useState<string>("");
+  const [times, setTimes] = useState<string>("");
+  const [output, setOutput] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/digest', {
-        method: 'POST',
+      const response = await fetch("/api/digest", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          foodItems: foodItems.split(',').map(item => item.trim()),
-          times: times.split(',').map(time => time.trim()),
+          foodItems: foodItems.split(",").map((item) => item.trim()),
+          times: times.split(",").map((time) => time.trim()),
         }),
       });
 
@@ -45,28 +56,24 @@ export default function Home() {
         setOutput("Error fetching data.");
       }
     } catch (error) {
+      console.error("Error fetching data:", error);
       setOutput("An error occurred while calculating digestion time.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const formatOutput = (outputText) => {
+  const formatOutput = (outputText: string | null) => {
     if (!outputText) return null;
 
-    // Parse the new format "X-Y hours | HH:MM"
-    const [duration, completionTime] = outputText.split('|').map(str => str.trim());
+    const [duration, completionTime] = outputText
+      .split("|")
+      .map((str) => str.trim());
 
     return (
       <div className="space-y-4">
-        <TimeDisplay 
-          label="Digestion Duration" 
-          value={duration}
-        />
-        <TimeDisplay 
-          label="Complete By" 
-          value={completionTime}
-        />
+        <TimeDisplay label="Digestion Duration" value={duration} />
+        <TimeDisplay label="Complete By" value={completionTime} />
       </div>
     );
   };
@@ -103,12 +110,8 @@ export default function Home() {
                   required
                 />
               </div>
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Calculating...' : 'Calculate Digestion Time'}
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? "Calculating..." : "Calculate Digestion Time"}
               </Button>
             </form>
           </CardContent>
@@ -116,9 +119,7 @@ export default function Home() {
 
         {output && (
           <Card>
-            <CardContent className="pt-6">
-              {formatOutput(output)}
-            </CardContent>
+            <CardContent className="pt-6">{formatOutput(output)}</CardContent>
           </Card>
         )}
       </div>

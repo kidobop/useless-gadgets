@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<img width="1280" alt="readme-banner" src="https://github.com/user-attachments/assets/35332e92-44cb-425b-9dff-27bcf1023c6c">
 
-## Getting Started
+# Useless Gadgets 🎯
 
-First, run the development server:
 
+## Basic Details
+### Team Name: Useless Guys
+
+
+### Team Members
+- Team Lead: Aaqil Fazil - Govt Polytechnic College, Thrissur
+- Member 2: Thariq
+
+### Project Description
+The Swiss Army Knife of most unnecessary questions. It combines AI-powered image recognition with a groundbreaking digestion calculator to solve problems you never knew you had.
+
+### The Problem (that doesn't exist)
+In today's fast-paced world, people are constantly plagued by questions like "Is this green thing I'm looking at actually a plant?" and "When exactly will my 3 PM Noodles complete its digestive journey?" We've bravely stepped up to solve these non-existent problems.
+
+
+### The Solution (that nobody asked for)
+We've created a suite of four utterly unnecessary but entertaining tools:
+1. 🌿 Plant Detector: For when you're really not sure if that green thing is a plant
+2. 🍕 Food Identifier: Because sometimes you need AI to tell you what you're eating
+3. 🐸 Life Checker: Confirms if something is alive (spoiler: if it's moving, it probably is)
+4. ⏰ Digestion Calculator: Finally answers the age-old question, "When will my lunch leave my system?"
+
+## Technical Details
+### Technologies/Components Used
+For Software:
+- **Languages**: TypeScript, JavaScript
+- **Frameworks**: Next.js 14, React
+- **UI Components**: shadcn/ui, Tailwind CSS
+- **AI/ML**: Google Gemini AI Vision API
+- **Backend**: Next.js API Routes
+- **Deployment**: Vercel
+- **Version Control**: Git/GitHub
+
+
+### Implementation
+
+#### Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone 
+
+# Install dependencies
+cd useless-gadgets
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Add your Gemini API key to .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Run
+```bash
+# Run development server
+npm run dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Build for production
+npm run build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Start production server
+npm start
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+### Project Documentation
+For Software:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Screenshots (Add at least 3)
+![The Home Page](demo/home.jpeg)
+*The landing page*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![pic being recognised through the cam](demo/plant.jpg)
+*A picture that it recognised as Plant*
 
-## Deploy on Vercel
+![picture not being recognised through the cam](demo/notplant.jpg)
+*A picture that it didnt recognise as Plant*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![picture being recognised through the cam as food](demo/food.jpg)
+*A picture that it recognised as Food*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![picture being recognised through the cam as living](demo/living.jpg)
+*A picture that it recognised as Living*
+
+![picture being recognised through the cam as living](demo/living.jpg)
+*A screenshot of the digestion calculator*
+
+## Team Contributions
+- Aaqil Fazil: Frontend and Prompts
+- Thariq: Fullstack and Debugging
+
+---
+Made with ❤️ at TinkerHub Useless Projects 
+
+![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+![Static Badge](https://img.shields.io/badge/UselessProject--24-24?link=https%3A%2F%2Fwww.tinkerhub.org%2Fevents%2FQ2Q1TQKX6Q%2FUseless%2520Projects)
