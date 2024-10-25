@@ -73,19 +73,19 @@ For Software:
 ![The Home Page](demo/home.jpeg)
 *The landing page*
 
-![pic being recognised through the cam](demo/plant.jpg)
+<img src="demo/plant.jpg" alt="pic being recognised through the cam" width="200" />
 *A picture that it recognised as Plant*
 
-![picture not being recognised through the cam](demo/notplant.jpg)
-*A picture that it didnt recognise as Plant*
+<img src="demo/notplant.jpg" alt="picture not being recognised through the cam" width="200" />
+*A picture that it didn't recognise as Plant*
 
-![picture being recognised through the cam as food](demo/food.jpg)
+<img src="demo/food.jpg" alt="picture being recognised through the cam as food" width="200" />
 *A picture that it recognised as Food*
 
-![picture being recognised through the cam as living](demo/living.jpg)
+<img src="demo/living.jpg" alt="picture being recognised through the cam as living" width="200" />
 *A picture that it recognised as Living*
 
-![picture being recognised through the cam as living](demo/living.jpg)
+<img src="demo/living.jpg" alt="screenshot of the digestion calculator" width="200" />
 *A screenshot of the digestion calculator*
 
 ## Team Contributions
