@@ -144,6 +144,32 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
+
+          <Card className="transition-all hover:shadow-lg">
+            <CardHeader>
+              <div className="p-2 w-fit rounded-lg bg-primary/10 mb-4">
+                <Utensils className="w-6 h-6 text-primary" />
+              </div>
+              <CardTitle>Check Digestion Time</CardTitle>
+              <CardDescription>
+                Find out the digestion time of the food you ate!
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center gap-4">
+                <Avatar>
+                  <AvatarImage src="/api/placeholder/32/32" alt="User" />
+                  <AvatarFallback>PJ</AvatarFallback>
+                </Avatar>
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium">Pearl Johns</span>
+                  <span className="text-sm text-muted-foreground">
+                    "It told me that the cat I ate cannot be Digested. Good to know!"
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
