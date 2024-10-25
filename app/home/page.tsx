@@ -1,27 +1,32 @@
 "use client";
-import React, { useRef } from 'react';
-import { Button } from '@/components/ui/button';
+import React, { useRef } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import ModeToggle from '@/components/mode-toggle';
-import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Leaf, Utensils , PawPrint } from 'lucide-react';
+} from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ModeToggle from "@/components/mode-toggle";
+import { Badge } from "@/components/ui/badge";
+import { Leaf, Utensils, PawPrint } from "lucide-react";
 import { Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
+import useStore from "@/app/store/store";
 
 export default function Home() {
-  const featuresRef = useRef(null);
+  const { setIsPlant, setIsFood, setIsLiving } = useStore();
 
-  const scrollToFeatures = () => {
-    if (featuresRef.current) {
-      featuresRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const featuresRef = useRef(null);
+  const router = useRouter();
+
+  // const scrollToFeatures = () => {
+  //   if (featuresRef.current) {
+  //     featuresRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-background">
@@ -53,28 +58,35 @@ export default function Home() {
             <br className="hidden sm:inline" /> and having fun!
           </h1>
           <p className="max-w-[700px] text-muted-foreground md:text-xl text-center">
-            Dive into a world where we help you figure out if it's a plant, food, or just a living thing! 
-            Embrace the joy of solving utterly pointless mysteries with our quirky gadget.
+            {
+              " Dive into a world where we help you figure out if it's a plant,food, or just a living thing! Embrace the joy of solving utterlypointless mysteries with our quirky gadget."
+            }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button size="lg" className="gap-2" onClick={scrollToFeatures}>
-              Start Exploring <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section ref={featuresRef} className="flex flex-col items-center px-4 py-16">
+      <section
+        ref={featuresRef}
+        className="flex flex-col items-center px-4 py-16"
+      >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="transition-all hover:shadow-lg">
+          <Card
+            onClick={() => {
+              setIsPlant(true);
+              setIsFood(false);
+              setIsLiving(false);
+              router.push("/scanner");
+            }}
+            className="transition-all hover:shadow-lg"
+          >
             <CardHeader>
               <div className="p-2 w-fit rounded-lg bg-primary/10 mb-4">
                 <Leaf className="w-6 h-6 text-primary" />
               </div>
               <CardTitle>Check Plants</CardTitle>
               <CardDescription>
-                Upload a photo to see if it's a plant. 
+                {"Upload a photo to see if it's a plant."}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -86,21 +98,28 @@ export default function Home() {
                 <div className="flex flex-col">
                   <span className="text-sm font-medium">Alice Cooper</span>
                   <span className="text-sm text-muted-foreground">
-                    "It identified my houseplants effortlessly!"
+                    {"It identified my houseplants effortlessly!"}
                   </span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="transition-all hover:shadow-lg">
+          <Card
+            onClick={() => {
+              setIsFood(true);
+              setIsLiving(false);
+              setIsPlant(false);
+              router.push("/scanner");
+            }}
+          >
             <CardHeader>
               <div className="p-2 w-fit rounded-lg bg-primary/10 mb-4">
                 <Utensils className="w-6 h-6 text-primary" />
               </div>
               <CardTitle>Check Food</CardTitle>
               <CardDescription>
-                Snap a pic and find out if it's food. 
+                {"  Snap a pic and find out if it's food."}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -112,21 +131,29 @@ export default function Home() {
                 <div className="flex flex-col">
                   <span className="text-sm font-medium">Bob Newman</span>
                   <span className="text-sm text-muted-foreground">
-                    "I learned my pizza was technically food!"
+                    {"I learned my pizza was technically food!"}
                   </span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="transition-all hover:shadow-lg">
+          <Card
+            onClick={() => {
+              setIsLiving(true);
+              setIsFood(false);
+              setIsPlant(false);
+              router.push("/scanner");
+            }}
+            className="transition-all hover:shadow-lg"
+          >
             <CardHeader>
               <div className="p-2 w-fit rounded-lg bg-primary/10 mb-4">
                 <PawPrint className="w-6 h-6 text-primary" />
               </div>
               <CardTitle>Check Living Things</CardTitle>
               <CardDescription>
-                Find out if it's a living thing with a simple click!
+                {"Find out if it's a living thing with a simple click"}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -138,33 +165,38 @@ export default function Home() {
                 <div className="flex flex-col">
                   <span className="text-sm font-medium">Carol Davis</span>
                   <span className="text-sm text-muted-foreground">
-                    "It told me my cat is alive. Good to know!"
+                    {"It told me my cat is alive. Good to know!"}
                   </span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="transition-all hover:shadow-lg">
+          <Card
+            onClick={() => {
+              router.push("/digest");
+            }}
+            className="transition-all hover:shadow-lg"
+          >
             <CardHeader>
               <div className="p-2 w-fit rounded-lg bg-primary/10 mb-4">
-                <Utensils className="w-6 h-6 text-primary" />
+                <PawPrint className="w-6 h-6 text-primary" />
               </div>
               <CardTitle>Check Digestion Time</CardTitle>
               <CardDescription>
-                Find out the digestion time of the food you ate!
+                {"Find out the Digestion Time of the thing you ate"}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-4">
                 <Avatar>
                   <AvatarImage src="/api/placeholder/32/32" alt="User" />
-                  <AvatarFallback>PJ</AvatarFallback>
+                  <AvatarFallback>DJ</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
-                  <span className="text-sm font-medium">Pearl Johns</span>
+                  <span className="text-sm font-medium">Drake Johns</span>
                   <span className="text-sm text-muted-foreground">
-                    "It told me that the cat I ate cannot be Digested. Good to know!"
+                    {"It basically told me I have digestion issues. Helpful Stuff!"}
                   </span>
                 </div>
               </div>
