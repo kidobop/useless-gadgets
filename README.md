@@ -91,6 +91,7 @@ For Software:
 ## Team Contributions
 - Aaqil Fazil: Frontend and Prompts
 - Thariq: Fullstack and Debugging
+https://github.com/tq99/useless-gadget: our repo with original commits. we had to make this new repo since the previous one had security concerns.
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
